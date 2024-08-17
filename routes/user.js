@@ -5,6 +5,8 @@ const { MongoClient } = require('mongodb')
 const dbName = 'Library-management';
 
 
+
+// getting user data for login acttion
 router.get('/login',async (req,res)=>{
     const {username,password} = req.query
     const client = new MongoClient(process.env.MONGO_URI)
@@ -27,6 +29,8 @@ router.get('/login',async (req,res)=>{
     }
 })
 
+
+//inserting student details 
 router.post("/studentdetail",async (req,res)=>{
     const data = req.body
     const client = new MongoClient(process.env.MONGO_URI)
@@ -47,6 +51,8 @@ router.post("/studentdetail",async (req,res)=>{
     }
 })
 
+
+// fetching student details 
 router.get("/getStudent",async (req,res)=>{
     const {registration_number} = req.query
     console.log(req.query)
